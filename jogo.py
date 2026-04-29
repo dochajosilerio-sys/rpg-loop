@@ -12,8 +12,22 @@ def escolher_classe():
     else:
         return {"classe": "Mago", "vida": 80, "ataque": 25}
 
+def mostrar_ranking(loop):
+    print("\n" + "="*30)
+    print("      RANKING FINAL")
+    print("="*30)
+    if loop < 10:
+        print("Classificação: Recruta de Python 🪵")
+    elif loop < 20:
+        print("Classificação: Aventureiro de Dados ⚔️")
+    elif loop < 30:
+        print("Classificação: MESTRE DO LOOP 👑")
+    else:
+        print("Classificação: LENDA DO BACK-END 🌌")
+    print("="*30)
+
 def iniciar_jogo():
-    print("--- BEM-VINDO AO LOOP INFINITO v3.0 ---")
+    print("--- BEM-VINDO AO LOOP INFINITO v4.0 ---")
     nome = input("Qual o nome do seu herói? ")
     
     dados = escolher_classe()
@@ -33,7 +47,6 @@ def iniciar_jogo():
         print(f"Um monstro de nível {loop_atual} apareceu! (Vida: {monstro_vida})")
         
         while monstro_vida > 0 and vida > 0:
-            # Lógica de Golpe Crítico (20% de chance)
             sorte = random.randint(1, 100)
             dano_final = ataque
             
@@ -52,15 +65,19 @@ def iniciar_jogo():
                 print("✨ Você derrotou o monstro!")
                 xp += 10 * loop_atual
                 ataque += 3
-                vida += 25  # Recuperação de vida aumentada
+                vida += 25 
                 loop_atual += 1
                 
         if vida <= 0:
             print(f"\n💀 GAME OVER! O {dados['classe']} {nome} caiu no Loop {loop_atual}.")
             print(f"XP Total: {xp}")
+            mostrar_ranking(loop_atual)
 
 if __name__ == "__main__":
     iniciar_jogo()
+
+
+
 
 
 
