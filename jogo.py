@@ -2,33 +2,33 @@ import time
 import random
 
 def escolher_classe():
-    print("\n--- ESCOLHA SUA CLASSE ---")
-    print("1. Guerreiro (Vida: 150, Ataque: 12)")
-    print("2. Mago (Vida: 80, Ataque: 25)")
-    escolha = input("Digite o número da classe: ")
+    print("\n--- SELEÇÃO DE UNIDADE (UDF) ---")
+    print("1. William Cage (Vida: 180, Ataque: 10) - Tom Cruise")
+    print("2. Rita Vrataski (Vida: 100, Ataque: 30) - Emily Blunt")
+    escolha = input("Escolha sua unidade: ")
     
     if escolha == "1":
-        return {"classe": "Guerreiro", "vida": 150, "ataque": 12}
+        return {"classe": "William Cage", "vida": 180, "ataque": 10}
     else:
-        return {"classe": "Mago", "vida": 80, "ataque": 25}
+        return {"classe": "Rita Vrataski", "vida": 100, "ataque": 30}
 
 def mostrar_ranking(loop):
-    print("\n" + "="*30)
-    print("      RANKING FINAL")
-    print("="*30)
+    print("\n" + "="*35)
+    print("      RELATÓRIO DE COMBATE")
+    print("="*35)
     if loop < 10:
-        print("Classificação: Recruta de Python 🪵")
+        print("Status: Recruta Desorientado 🪵")
     elif loop < 20:
-        print("Classificação: Aventureiro de Dados ⚔️")
+        print("Status: Soldado da Resistência ⚔️")
     elif loop < 30:
-        print("Classificação: MESTRE DO LOOP 👑")
+        print("Status: O ANJO DE VERDUN 👑")
     else:
-        print("Classificação: LENDA DO BACK-END 🌌")
-    print("="*30)
+        print("Status: MESTRE DO RESET TEMPORAL 🌌")
+    print("="*35)
 
 def iniciar_jogo():
-    print("--- BEM-VINDO AO LOOP INFINITO v4.0 ---")
-    nome = input("Qual o nome do seu herói? ")
+    print("--- NO LIMITE DO AMANHÃ: SIMULADOR DE COMBATE ---")
+    nome = "Josilerio" 
     
     dados = escolher_classe()
     vida = dados["vida"]
@@ -37,44 +37,44 @@ def iniciar_jogo():
     loop_atual = 1
     
     while vida > 0:
-        print(f"\n--- LOOP {loop_atual} ---")
-        print(f"Herói: {nome} ({dados['classe']}) | Vida: {vida} | Ataque: {ataque}")
+        print(f"\n--- RESET TEMPORAL Nº {loop_atual} ---")
+        print(f"Unidade: {dados['classe']} | Integridade: {vida} | Força: {ataque}")
         time.sleep(1)
         
-        monstro_vida = 20 + (loop_atual * 6)
-        monstro_ataque = 5 + (loop_atual * 2)
+        monstro_vida = 25 + (loop_atual * 7)
+        monstro_ataque = 6 + (loop_atual * 2)
         
-        print(f"Um monstro de nível {loop_atual} apareceu! (Vida: {monstro_vida})")
+        print(f"🚨 Alerta! Mimic detectado! (Energia: {monstro_vida})")
         
         while monstro_vida > 0 and vida > 0:
             sorte = random.randint(1, 100)
-            dano_final = ataque
-            
             if sorte > 80:
                 dano_final = ataque * 2
-                print(f"🔥 CRÍTICO! Você causou {dano_final} de dano!")
+                print(f"🔥 CONTRA-ATAQUE CRÍTICO! Dano: {dano_final}")
             else:
-                print(f"Você atacou! Dano: {dano_final}")
+                dano_final = ataque
+                print(f"Você disparou seu exotraje! Dano: {dano_final}")
             
             monstro_vida -= dano_final
             
             if monstro_vida > 0:
                 vida -= monstro_ataque
-                print(f"O monstro revidou! Sua vida: {vida}")
+                print(f"O Mimic atingiu você! Integridade: {vida}")
             else:
-                print("✨ Você derrotou o monstro!")
-                xp += 10 * loop_atual
-                ataque += 3
-                vida += 25 
+                print("✨ Mimic neutralizado! Coletando dados de memória...")
+                xp += 15 * loop_atual
+                ataque += 4 
+                vida += 20 
                 loop_atual += 1
                 
         if vida <= 0:
-            print(f"\n💀 GAME OVER! O {dados['classe']} {nome} caiu no Loop {loop_atual}.")
-            print(f"XP Total: {xp}")
+            print(f"\n💀 VOCÊ MORREU! {dados['classe']} {nome} caiu no Loop {loop_atual}.")
+            print("Reiniciando dia em 3... 2... 1...")
             mostrar_ranking(loop_atual)
 
 if __name__ == "__main__":
     iniciar_jogo()
+
 
 
 
