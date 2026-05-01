@@ -1,5 +1,7 @@
 # ⚔️ RPG de Loop Infinito
 
+### 🎬 No Limite do Amanhã
+
 Um jogo de console desenvolvido em Python que explora conceitos de **estruturas de repetição (while)** e **lógica de progressão incremental**.
 
 ## 🕹️ Funcionalidades
